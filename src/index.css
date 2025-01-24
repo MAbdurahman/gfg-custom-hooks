@@ -1,68 +1,433 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/*===============================================================
+          @layer base
+==================================================================*/
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer base {
+  *,
+  *::after,
+  *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
   }
+
+  *::-moz-focus-inner {
+    border: 0;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+
+  }
+
+  body {
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    @apply font-body;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    color: hsl(221, 23%, 10%);
+    background-color: hsl(221, 0%, 68%);
+
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-head;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  h1 {
+    font-size: 3.052rem;
+  }
+
+  h2 {
+    font-size: 2.441rem;
+  }
+
+  h3 {
+    font-size: 1.953rem;
+  }
+
+  h4 {
+    font-size: 1.563rem;
+  }
+
+  h5 {
+    font-size: 1.25rem;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.75;
+
+  }
+
   a:hover {
-    color: #747bff;
+    cursor: pointer;
+    opacity: 1;
+
   }
-  button {
-    background-color: #f9f9f9;
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    @apply font-mono;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+    @apply font-mono;
+  }
+
+  /************************* scrollbar styles *************************/
+  /* width */
+  ::-webkit-scrollbar {
+    width: 3px;
+
+  }
+  /* track */
+  ::-webkit-scrollbar-track {
+    margin-left: 4px;
+    box-shadow: inset 0 0 5px #bfbfbf;
+    border-radius: 3px;
+
+  }
+
+  /* handle */
+  ::-webkit-scrollbar-thumb {
+    background: #d9d9d9;
+    border-radius: 3px;
+  }
+
+  /* handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #616161;
+  }
+}
+/*===============================================================
+          @layer utilities
+==================================================================*/
+
+@layer utilities {
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5 {
+    margin: 3rem 0 1.38rem;
+    @apply font-head;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .h1 {
+    font-size: 3.052rem;
+  }
+
+  .h2 {
+    font-size: 2.441rem;
+  }
+
+  .h3 {
+    font-size: 1.953rem;
+  }
+
+  .h4 {
+    font-size: 1.563rem;
+  }
+
+  .h5 {
+    font-size: 1.25rem;
+  }
+
+  .utils-container-fluid {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+
+  }
+
+  .utils-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+
+  }
+
+  @media (min-width: 576px) {
+    .utils-container {
+      max-width: 544px;
+
+    }
+  }
+
+  @media (min-width: 768px) {
+    .utils-container {
+      max-width: 720px;
+
+    }
+  }
+
+  @media (min-width: 992px) {
+    .utils-container {
+      max-width: 960px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .utils-container {
+      max-width: 1144px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .utils-container {
+      max-width: 1320px;
+    }
+  }
+
+  .utils-img-responsive {
+    vertical-align: middle;
+  }
+
+  .utils-img-thumbnail {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    line-height: 1.42857143;
+    background-color: hsl(221, 0%, 88%);
+    border: 1px solid hsl(221, 0%, 68%);
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+  }
+
+  .utils-img-responsive,
+  .utils-thumbnail > img,
+  .utils-thumbnail a > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /*If you want the image to scale both up and down on responsiveness,
+  set CSS width property to 100% and height to auto*/
+  .utils-img-responsive-up-and-down {
+    width: 100%;
+    height: auto;
+  }
+
+  /*If you want the image to scale down if it has to, but never scale up
+  to be larger than its original size, use CSS max-width property to 100%
+  and height to auto*/
+  .utils-img-responsive-down {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /*If you want to restrict the image to a maximum size, set CSS width property
+  to 100%, max-width property to a pixel value of choice, and height to auto*/
+  .utils-img-responsive-up-to {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .utils-img-responsive {
+    vertical-align: middle;
+  }
+
+  .utils-img-thumbnail {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    line-height: 1.42857143;
+    background-color: hsl(221, 0%, 28%);
+    border: 1px solid hsl(221, 0%, 68%);
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+  }
+
+  .utils-img-responsive,
+  .utils-thumbnail > img,
+  .utils-thumbnail a > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .utils-center-text {
+    text-align: center;
+  }
+
+  .utils-center-horizontally {
+    margin: auto;
+    width: 100%;
+
+  }
+
+  .utils-center-vertically {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+
+  }
+
+  .utils-center-horizontally-vertically {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+
+  .utils-padding-top-100 {
+    padding-top: 1em;
+  }
+
+  /************************* flexbox and grid helper classes *************************/
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grid-center {
+    display: grid;
+    place-items: center;
+  }
+
+  .grid-container {
+    margin: 3em auto;
+    width: 90%;
+    display: grid;
+    row-gap: 3rem;
+    column-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .grid-container-12 {
+    margin: 0 auto;
+    width: 90%;
+    display: grid;
+    row-gap: 3rem;
+    column-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .grid-column-1 {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+
+  .grid-column-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+
+  .grid-column-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+
+  .grid-column-4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+
+  .move-in-from-right {
+    animation-name: move-in-from-right;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+  }
+
+  .exit-to-left {
+    animation-name: exit-to-left;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes move-in-from-right {
+    0% {
+      opacity: 0;
+      transform: translateX(2000px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateX(-50px);
+    }
+    80% {
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes exit-to-left {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(50px);
+    }
+    100% {
+      transform: translateX(-2000px);
+    }
   }
 }
