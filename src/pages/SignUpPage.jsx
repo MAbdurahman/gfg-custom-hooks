@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import { v4 as uuid } from 'uuid';
+import bcrypt from 'bcryptjs';
 import PasswordStrengthMeter from '../components/PasswordStrengthMeter.jsx';
 import useNotification from '../hooks/useNotification.jsx';
 import useLocalStorage from '../hooks/useLocalStorage.jsx';
@@ -16,11 +17,15 @@ export default function SignUpPage() {
 
    const handleSubmit = async (e) => {
       e.preventDefault();
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
+      const isPasswordValid = await bcrypt.compare(password, hashedPassword);
       const userData = {
          id: uuid(),
          username,
          email,
-         password
+         hashedPassword,
+         matchedPassword: isPasswordValid
       }
       try {
          if (!isValid) {
