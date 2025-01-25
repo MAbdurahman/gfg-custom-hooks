@@ -8,7 +8,7 @@ export function validateUserInfo(username, email, password) {
    const email_pattern = /^[!A-Z0-9#$&?*^~_%+-]+(\.[A-Z0-9!_%+-^]+)*?@[A-Z0-9-]+([A-Z0-9.-])*\.[A-Z]{2,}$/i;
 
    if (name_trimmed.length === 0) {
-      return {isValid: false, error: 'Your first and last name is required!'};
+      return {isValid: false, error: 'Your first and last name are required!'};
    }
    if (!name_trimmed.match(name_pattern)) {
       return {isValid: false, error: 'Enter your first and last name!'};
