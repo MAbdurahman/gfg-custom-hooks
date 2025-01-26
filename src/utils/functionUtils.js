@@ -23,7 +23,7 @@ export function validateUserInfo(username, email, password) {
       return {isValid: false, error: 'Your password is required!'};
    }
    if (password_trimmed.length < 8) {
-      return {isValid: false, error: 'A password must be at least 8 characters!'};
+      return {isValid: false, error: 'Password must be at least 8 characters!'};
    }
    return {isValid: true};
 }

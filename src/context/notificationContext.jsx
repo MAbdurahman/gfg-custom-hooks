@@ -54,7 +54,7 @@ export default function NotificationProvider({ children }) {
          {notification && (<div className="fixed left-1/2 -translate-x-1/2 top-24">
             <div
                className={`${exitToLeft ? "exit-to-left" : "move-in-from-right"}` + " shadow-md shadow-gray-400 bg-semantic-a-400 rounded"}>
-               <p className={classes + ' text-gray-50 px-4 py-2 font-body font-semibold'}>
+               <p className={classes + ' text-gray-50 px-4 py-4 font-body font-semibold utils-notify utils-center-text'}>
                   {notification}
                </p>
             </div>

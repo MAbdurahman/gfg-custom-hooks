@@ -51,24 +51,24 @@ export default function SignUpPage() {
 
    return (
       <section className='h-screen mt-8'>
-         <div className='max-w-sm border shadow bg-gray-50 mx-auto p-8'>
+         <div className='max-w-sm border shadow bg-gray-200 mx-auto p-8'>
             <h2 className='text-2xl font-head text-center uppercase font-semibold pt-5'>Sign up</h2>
             <form onSubmit={handleSubmit}
                   className='space-y-5 max-w-sm mx-auto pt-8'>
                <input type="text" name="username" id="username"
                       onChange={(e) => setUsername(e.target.value)}
                       placeholder='Full name'
-                      className='w-full bg-gray-100 focus:outline-none px-5 py-3'
+                      className='w-full bg-gray-50 focus:outline-none px-5 py-3'
                />
                <input type="text" name="email" id="email"
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder='Email'
-                      className='w-full bg-gray-100 focus:outline-none px-5 py-3'
+                      className='w-full bg-gray-50 focus:outline-none px-5 py-3'
                />
                <input type="password" name="password" id="password"
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder='Password'
-                      className='w-full bg-gray-100 focus:outline-none px-5 py-3'
+                      className='w-full bg-gray-50 focus:outline-none px-5 py-3'
                />
 
                <PasswordStrengthMeter password={password} />

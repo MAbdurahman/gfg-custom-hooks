@@ -332,6 +332,11 @@
     padding-top: 1em;
   }
 
+  .utils-notify {
+    min-width: 320px;
+    max-width: 320px;
+  }
+
   /************************* flexbox and grid helper classes *************************/
   .flex-center {
     display: flex;
