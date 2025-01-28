@@ -14,14 +14,20 @@ export default function SignUpPage() {
    const {isValid, error} = validateUserInfo(username, email, password);
    const userDataArr = [];
    const [name, setName] = useLocalStorage('userHook', userDataArr);
+   let timeOutId = null;
 
    const handleSubmit = async (e) => {
       e.preventDefault();
+
+      if (timeOutId) {
+         clearTimeout(timeOutId);
+      }
+
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
       const isPasswordValid = await bcrypt.compare(password, hashedPassword);
       const userData = {
-         id: uuid(),
+         _id: uuid(),
          username,
          email,
          hashedPassword,
@@ -36,7 +42,7 @@ export default function SignUpPage() {
          userDataArr.push(userData);
          setName(userDataArr);
 
-         setTimeout(() => {
+          timeOutId =  setTimeout(() => {
             location.reload();
          }, 5000);
 
