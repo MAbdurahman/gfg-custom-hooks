@@ -7,7 +7,8 @@ export default function App() {
    const [location, setLocation] = useState('');
 
    useEffect(() => {
-      document.title = 'GFG | Custom Hooks';
+      document.title = `GFG | Custom Hooks`;
+
       setLocation('/sign-up');
    }, []);
 
